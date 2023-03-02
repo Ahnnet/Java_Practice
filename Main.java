@@ -9,15 +9,10 @@ public class Main{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int n = Integer.parseInt(br.readLine());
-
-        int sum = 0;
-        String str = br.readLine();
-        for(int i=0;i<n;i++){
-            sum += (int)(str.charAt(i)-'0');
-            // sum += Character.getNumericValue(str.charAt(i));
-        }
-        bw.write(sum+"\n");
+        char c = 'a';
+        char q = 'a'+2;
+        if(c == q) bw.write("good\n");
+        else bw.write("bad: "+ q+"\n");
         bw.flush();
         bw.close();
     }
