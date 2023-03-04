@@ -5,7 +5,7 @@ import java.io.OutputStreamWriter;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-public class Main{
+public class 평균은넘겠지{
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -20,23 +20,21 @@ public class Main{
 
             int N = Integer.parseInt(st.nextToken());
             int[] arr = new int[N];
-            float sum = 0;
+            int sum = 0;
             for(int j=0;j<N;j++){
                 arr[j] = Integer.parseInt(st.nextToken());
                 sum += arr[j];
             }
 
-            float avg = sum / N;
-            float count = 0;
+            float avg = (float)sum / N;
+            int count = 0;
             for (int j=0;j<N;j++){
                 if(arr[j]>avg) count++;
             }
-            float result = count / N * 100;
+            float result = (float)count / N * 100;
             System.out.printf("%.3f",result);
-            System.out.println("%\n");
+            System.out.println("%");
 
         }
-
-
     }
 }
