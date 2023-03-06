@@ -5,7 +5,7 @@ import java.io.OutputStreamWriter;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-public class Main{
+public class 스택{
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -38,7 +38,7 @@ public class Main{
             else if(order.equals("size")){
                 bw.write(size+"\n");
             }
-           // empty
+            // empty
             else if(order.equals("empty")){
                 if(size==0) bw.write("1\n");
                 else bw.write("0\n");
