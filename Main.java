@@ -12,7 +12,7 @@ public class Main{
 
         int n = Integer.parseInt(br.readLine());
 
-        for(int i=0;i<n;i++){
+        for(int i=1;i<n;i++){
             String str = br.readLine();
             StringTokenizer st = new StringTokenizer(str, " ");
 
