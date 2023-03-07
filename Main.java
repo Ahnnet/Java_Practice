@@ -1,42 +1,42 @@
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
 public class Main{
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int n = Integer.parseInt(br.readLine());
-
-        for(int i=0;i<n;i++){
-
-
+        double sum = 0;
+        double pointSum = 0;
+        for(int i=0;i<10;i++){
             String str = br.readLine();
             StringTokenizer st = new StringTokenizer(str, " ");
 
-            int N = Integer.parseInt(st.nextToken());
-            int[] arr = new int[N];
-            float sum = 0;
-            for(int j=0;j<N;j++){
-                arr[j] = Integer.parseInt(st.nextToken());
-                sum += arr[j];
+            // read point and grade
+            String grade = st.nextToken();
+            double point = Double.parseDouble(st.nextToken());
+            grade = st.nextToken();
+
+            pointSum += point;
+
+            char gr = grade.charAt(0);
+            char ad = grade.charAt(1);
+            int grr=1;
+            double add = 0.0;
+
+            if(gr == 'A') grr = 4;
+            else if(gr == 'B') grr = 3;
+            else if(gr == 'C') grr = 2;
+            else if(gr == 'D') grr = 1;
+            else if(gr == 'F') grr = 0;
+
+            if(grr!=0){
+                if(ad == '+') add = 0.5;
             }
 
-            float avg = sum / N;
-            float count = 0;
-            for (int j=0;j<N;j++){
-                if(arr[j]>avg) count++;
-            }
-            float result = count / N * 100;
-            System.out.printf("%.3f",result);
-            System.out.println("%\n");
-
+            sum += point*(grr + add);
         }
-
-
+        System.out.println(sum/pointSum);
     }
 }
