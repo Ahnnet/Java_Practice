@@ -12,6 +12,16 @@ public class 괄호 {
 
         for(int i=0;i<n;i++){
             String str = br.readLine();
+            int lCount=0, rCount=0;
+
+            for(int j=0;j<str.length();j++){
+                if(str.charAt(j)==('(')) lCount++;
+                else if(str.charAt(j)==(')')) rCount++;
+            }
+            if(lCount==rCount) bw.write("YES\n");
+            else bw.write("NO\n");
         }
+        bw.flush();
+        bw.close();
     }
 }
