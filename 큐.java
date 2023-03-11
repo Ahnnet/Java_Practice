@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 import java.util.Queue;
 import java.util.LinkedList;
 
-public class Main{
+public class 큐{
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -17,7 +17,7 @@ public class Main{
         String str;
         StringTokenizer st;
         String order;
-        int last = 0;
+        int last = 0; // 가장 최근에 push 한 정수를 저장하는 변수!!! Back 을 출력할 때 사용 한다.
         int n = Integer.parseInt(br.readLine());
         for(int i=0;i<n;i++){
             str = br.readLine();
