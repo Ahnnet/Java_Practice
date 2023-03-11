@@ -10,19 +10,46 @@ public class Main{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
+        String originStr = br.readLine();
+        char[] charArr = new char[100];
+        charArr = originStr.toCharArray();
+        int cursor = originStr.length();
+
         int n = Integer.parseInt(br.readLine());
+        StringTokenizer st;
 
         for(int i=0;i<n;i++){
             String str = br.readLine();
-            int lCount=0, rCount=0;
+            st = new StringTokenizer(str, " ");
+            char order = st.nextToken().charAt(0);
 
-            for(int j=0;j<str.length();j++){
-                if(str.charAt(j)==('(')) lCount++;
-                else if(str.charAt(j)==(')')) rCount++;
+            if(order == 'P'){
+                char c = st.nextToken().charAt(0);
+                charArr[cursor] = c;
+                cursor++;
             }
-            if(lCount==rCount) bw.write("YES\n");
-            else bw.write("NO\n");
+
+            else if(order == 'L' && cursor != 0){
+                cursor--;
+            }
+
+            else if(order == 'D' && charArr[cursor]!=0){
+                cursor++;
+            }
+
+            else if(order == 'B' && cursor != 0){
+                int bCursor = cursor;
+                while(charArr[bCursor]!=0){
+                    charArr[bCursor-1] = charArr[bCursor];
+                    bCursor++;
+                }
+                charArr[bCursor] = 0;
+            }
         }
+
+        int i=0;
+        while(charArr[i]!=0)
+            bw.write(charArr[i]);
         bw.flush();
         bw.close();
     }
